@@ -1,3 +1,5 @@
+[![Build Status](https://github.com/mgenware/jmap/workflows/Build/badge.svg)](https://github.com/mgenware/jmap/actions)
+
 A minimal library to work with JSON decoded maps and lists in a type-safe way.
 
 ## Usage
