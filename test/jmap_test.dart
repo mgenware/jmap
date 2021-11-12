@@ -2,6 +2,7 @@ import 'package:jmap/jmap.dart';
 import 'package:test/test.dart';
 
 void main() {
+  // ignore: implicit_dynamic_map_literal
   var m = JMap({
     'i': -123,
     'd': 123.456,
@@ -48,6 +49,7 @@ void main() {
       3.14,
       {'s': '_s_'}
     ]);
+    // ignore: implicit_dynamic_list_literal
     expect(m.getList('_').list, []);
     expect(m.getListOrNull('a')?.list, [
       -3,
@@ -61,6 +63,7 @@ void main() {
       'i': -2,
       'o': {'s': '_s_'}
     });
+    // ignore: implicit_dynamic_map_literal
     expect(m.getMap('_').map, {});
     expect(m.getMapOrNull('o')?.map, {
       'i': -2,

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:jmap/jmap.dart';
 
 void main() {
+  // ignore: prefer_single_quotes
   const json = """
     {
       "i": 1,
@@ -18,9 +19,10 @@ void main() {
       ]
     }
 """;
-  Map<String, dynamic> map = jsonDecode(json);
+  var map = jsonDecode(json) as Map<String, dynamic>;
   JMap jmap = JMap(map);
 
+// ignore_for_file: avoid_print
   // Access members.
   print(jmap.getInt('i')); // 1
   print(jmap.getInt('obj')); // 0 (map['obj'] is not an int)

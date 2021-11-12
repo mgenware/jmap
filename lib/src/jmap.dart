@@ -61,6 +61,7 @@ class JList {
 
   /// Gets a [JMap] that can be empty.
   JMap getMap(int idx) {
+    // ignore: implicit_dynamic_map_literal
     return getMapOrNull(idx) ?? JMap({});
   }
 
@@ -72,6 +73,7 @@ class JList {
 
   /// Gets a [JList] that can be empty.
   JList? getList(int idx) {
+    // ignore: implicit_dynamic_list_literal
     return getListOrNull(idx) ?? JList([]);
   }
 
@@ -156,6 +158,7 @@ class JMap {
 
   /// Gets a [JMap] that can be empty.
   JMap getMap(String key) {
+    // ignore: implicit_dynamic_map_literal
     return getMapOrNull(key) ?? JMap({});
   }
 
@@ -167,6 +170,7 @@ class JMap {
 
   /// Gets a [JList] that can be empty.
   JList getList(String key) {
+    // ignore: implicit_dynamic_list_literal
     return getListOrNull(key) ?? JList([]);
   }
 
