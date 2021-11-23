@@ -174,6 +174,13 @@ class JMap {
     return getListOrNull(key) ?? JList([]);
   }
 
+  /// Returns [value.toString()] if it exists. Otherwise, returns an empty string.
+  String getDescription(String key) {
+    // ignore: implicit_dynamic_variable
+    var value = map[key];
+    return value != null ? value.toString() : '';
+  }
+
   T? _get<T>(String key) {
     return map[key] is T ? map[key] as T : null;
   }

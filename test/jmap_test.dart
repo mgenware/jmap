@@ -71,4 +71,9 @@ void main() {
     });
     expect(m.getMapOrNull('_'), null);
   });
+  test('getDescription', () {
+    expect(m.getDescription('b'), 'true');
+    expect(m.getDescription('_'), '');
+    expect(m.getDescription('s'), '_s_');
+  });
 }
