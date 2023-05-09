@@ -55,7 +55,7 @@ class JList {
 
   /// Gets a nullable [JMap].
   JMap? getMapOrNull(int idx) {
-    var obj = _get<Map<String, dynamic>>(idx);
+    final obj = _get<Map<String, dynamic>>(idx);
     return obj == null ? null : JMap(obj);
   }
 
@@ -67,7 +67,7 @@ class JList {
 
   /// Gets a nullable [JList].
   JList? getListOrNull(int idx) {
-    var list = _get<List<dynamic>>(idx);
+    final list = _get<List<dynamic>>(idx);
     return list == null ? null : JList(list);
   }
 
@@ -78,9 +78,9 @@ class JList {
   }
 
   List<T> toList<T>() {
-    List<T> res = [];
+    final List<T> res = [];
     for (var i = 0; i < list.length; i++) {
-      var item = _get<T>(i);
+      final item = _get<T>(i);
       if (item != null) {
         res.add(item);
       }
@@ -89,7 +89,7 @@ class JList {
   }
 
   JMapList toJMapList() {
-    var dicts = toList<Map<String, dynamic>>();
+    final dicts = toList<Map<String, dynamic>>();
     return dicts.map((e) => JMap(e)).toList();
   }
 
@@ -152,7 +152,7 @@ class JMap {
 
   /// Gets a nullable [JMap].
   JMap? getMapOrNull(String key) {
-    var obj = _get<Map<String, dynamic>>(key);
+    final obj = _get<Map<String, dynamic>>(key);
     return obj == null ? null : JMap(obj);
   }
 
@@ -164,7 +164,7 @@ class JMap {
 
   /// Gets a nullable [JList].
   JList? getListOrNull(String key) {
-    var list = _get<List<dynamic>>(key);
+    final list = _get<List<dynamic>>(key);
     return list == null ? null : JList(list);
   }
 
@@ -177,7 +177,7 @@ class JMap {
   /// Returns [value.toString()] if it exists. Otherwise, returns an empty string.
   String getDescription(String key) {
     // ignore: implicit_dynamic_variable
-    var value = map[key];
+    final value = map[key];
     return value != null ? value.toString() : '';
   }
 

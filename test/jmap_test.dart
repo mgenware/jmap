@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   // ignore: implicit_dynamic_map_literal
-  var m = JMap({
+  final m = JMap({
     'i': -123,
     'd': 123.456,
     's': '_s_',

@@ -19,8 +19,8 @@ void main() {
       ]
     }
 """;
-  var map = jsonDecode(json) as Map<String, dynamic>;
-  JMap jmap = JMap(map);
+  final map = jsonDecode(json) as Map<String, dynamic>;
+  final jmap = JMap(map);
 
 // ignore_for_file: avoid_print
   // Access members.
@@ -29,11 +29,11 @@ void main() {
   print(jmap.getIntOrNull('__')); // null
 
   // JSON objects are returned as [JMap].
-  JMap obj = jmap.getMap('obj');
+  final obj = jmap.getMap('obj');
   print(obj.getInt('i')); // 2
 
   // JSON arrays are returned as [JList].
-  JList arr = jmap.getList('array');
+  final arr = jmap.getList('array');
   print(arr.getStringOrNull(1) ?? '--haha--'); // --haha--
 
   // Chaining.

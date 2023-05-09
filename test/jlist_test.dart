@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   // ignore: implicit_dynamic_list_literal
-  var l = JList([
+  final l = JList([
     -123,
     123.456,
     true,
