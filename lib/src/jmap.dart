@@ -100,6 +100,11 @@ class JList {
   T? _get<T>(int idx) {
     return list[idx] is T ? list[idx] as T : null;
   }
+
+  @override
+  String toString() {
+    return list.toString();
+  }
 }
 
 /// A wrapper around a [Map<String, dynamic>].
@@ -191,5 +196,10 @@ class JMap {
 
   T? _get<T>(String key) {
     return map[key] is T ? map[key] as T : null;
+  }
+
+  @override
+  String toString() {
+    return map.toString();
   }
 }
