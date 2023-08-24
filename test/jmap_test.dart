@@ -50,7 +50,7 @@ void main() {
       {'s': '_s_'}
     ]);
     // ignore: implicit_dynamic_list_literal
-    expect(m.getList('_').list, []);
+    expect(m.getList('_').list, <dynamic>[]);
     expect(m.getListOrNull('a')?.list, [
       -3,
       3.14,
@@ -64,7 +64,7 @@ void main() {
       'o': {'s': '_s_'}
     });
     // ignore: implicit_dynamic_map_literal
-    expect(m.getMap('_').map, {});
+    expect(m.getMap('_').map, <String, dynamic>{});
     expect(m.getMapOrNull('o')?.map, {
       'i': -2,
       'o': {'s': '_s_'}
