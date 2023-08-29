@@ -71,4 +71,12 @@ void main() {
     });
     expect(l.getMapOrNull(4), null);
   });
+
+  test('Deep clone', () {
+    final l2 = l.deepClone();
+    expect(l2.list, l.list);
+    expect(l2.list, isNot(same(l.list)));
+    expect(l2.list[4], isNot(same(l.list[4])));
+    expect(l2.list[5], isNot(same(l.list[5])));
+  });
 }

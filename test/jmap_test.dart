@@ -76,4 +76,14 @@ void main() {
     expect(m.getDescription('_'), '');
     expect(m.getDescription('s'), '_s_');
   });
+
+  test('Deep clone', () {
+    final m2 = m.deepClone();
+    expect(m2.map, m.map);
+    expect(m2.map, isNot(same(m.map)));
+    expect(m2.getMap('o').map, m.getMap('o').map);
+    expect(m2.getMap('o').map, isNot(same(m.getMap('o').map)));
+    expect(m2.getList('a').list, m.getList('a').list);
+    expect(m2.getList('a').list, isNot(same(m.getList('a').list)));
+  });
 }

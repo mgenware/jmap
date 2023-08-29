@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 /// Type alias for [List<JMap>].
 typedef JMapList = List<JMap>;
 
@@ -79,6 +81,12 @@ class JList {
   JList? getList(int idx) {
     // ignore: implicit_dynamic_list_literal
     return getListOrNull(idx) ?? JList([]);
+  }
+
+  JList deepClone() {
+    final json = jsonEncode(list);
+    final clone = jsonDecode(json) as List<dynamic>;
+    return JList(clone);
   }
 
   List<T> toList<T>() {
@@ -192,6 +200,12 @@ class JMap {
     // ignore: implicit_dynamic_variable
     final value = map[key];
     return value != null ? value.toString() : '';
+  }
+
+  JMap deepClone() {
+    final json = jsonEncode(map);
+    final clone = jsonDecode(json) as Map<String, dynamic>;
+    return JMap(clone);
   }
 
   T? _get<T>(String key) {
