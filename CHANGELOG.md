@@ -1,3 +1,7 @@
+## 1.3.0
+
+- Added `JMap.deepClone` and `JList.deepClone`.
+
 ## 1.2.1
 
 - Added `length`, `isEmpty`, and `isNotEmpty` getters.
