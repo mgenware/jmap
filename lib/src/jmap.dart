@@ -183,6 +183,18 @@ class JMap {
     return getJMapOrNull(key) ?? JMap({});
   }
 
+  /// Unlike [getJMap], this method creates a new [JMap] if the value does not exist.
+  JMap allocJMap(String key) {
+    final obj = _get<Map<String, dynamic>>(key);
+    if (obj == null) {
+      final newMap = <String, dynamic>{};
+      map[key] = newMap;
+      return JMap(newMap);
+    } else {
+      return JMap(obj);
+    }
+  }
+
   /// Gets a nullable [JList].
   JList? getJListOrNull(String key) {
     final list = _get<List<dynamic>>(key);

@@ -77,6 +77,12 @@ void main() {
     expect(m.getDescription('s'), '_s_');
   });
 
+  test('allocJMap', () {
+    final m2 = m.allocJMap('o');
+    expect(m2.map, m.getJMap('o').map);
+    expect(m2.map, same(m.getJMap('o').map));
+  });
+
   test('Deep clone', () {
     final m2 = m.deepClone();
     expect(m2.map, m.map);
