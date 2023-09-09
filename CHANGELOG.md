@@ -1,3 +1,9 @@
+## 2.0.0
+
+- Breaking change: Renamed `getMap` to `getJMap`.
+- Breaking change: Renamed `getList` to `getJList`.
+- Added `JMap.allocJMap`.
+
 ## 1.3.0
 
 - Added `JMap.deepClone` and `JList.deepClone`.
