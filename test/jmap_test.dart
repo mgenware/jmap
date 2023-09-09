@@ -44,32 +44,32 @@ void main() {
     expect(m.getStringOrNull('_'), null);
   });
   test('array', () {
-    expect(m.getList('a').list, [
+    expect(m.getJList('a').list, [
       -3,
       3.14,
       {'s': '_s_'}
     ]);
     // ignore: implicit_dynamic_list_literal
-    expect(m.getList('_').list, <dynamic>[]);
-    expect(m.getListOrNull('a')?.list, [
+    expect(m.getJList('_').list, <dynamic>[]);
+    expect(m.getJListOrNull('a')?.list, [
       -3,
       3.14,
       {'s': '_s_'}
     ]);
-    expect(m.getListOrNull('_'), null);
+    expect(m.getJListOrNull('_'), null);
   });
   test('map', () {
-    expect(m.getMap('o').map, {
+    expect(m.getJMap('o').map, {
       'i': -2,
       'o': {'s': '_s_'}
     });
     // ignore: implicit_dynamic_map_literal
-    expect(m.getMap('_').map, <String, dynamic>{});
-    expect(m.getMapOrNull('o')?.map, {
+    expect(m.getJMap('_').map, <String, dynamic>{});
+    expect(m.getJMapOrNull('o')?.map, {
       'i': -2,
       'o': {'s': '_s_'}
     });
-    expect(m.getMapOrNull('_'), null);
+    expect(m.getJMapOrNull('_'), null);
   });
   test('getDescription', () {
     expect(m.getDescription('b'), 'true');
@@ -81,9 +81,9 @@ void main() {
     final m2 = m.deepClone();
     expect(m2.map, m.map);
     expect(m2.map, isNot(same(m.map)));
-    expect(m2.getMap('o').map, m.getMap('o').map);
-    expect(m2.getMap('o').map, isNot(same(m.getMap('o').map)));
-    expect(m2.getList('a').list, m.getList('a').list);
-    expect(m2.getList('a').list, isNot(same(m.getList('a').list)));
+    expect(m2.getJMap('o').map, m.getJMap('o').map);
+    expect(m2.getJMap('o').map, isNot(same(m.getJMap('o').map)));
+    expect(m2.getJList('a').list, m.getJList('a').list);
+    expect(m2.getJList('a').list, isNot(same(m.getJList('a').list)));
   });
 }

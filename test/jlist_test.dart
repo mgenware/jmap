@@ -44,32 +44,32 @@ void main() {
     expect(l.getStringOrNull(2), null);
   });
   test('array', () {
-    expect(l.getList(4)?.list, [
+    expect(l.getJList(4)?.list, [
       -3,
       3.14,
       {'s': '_s_'}
     ]);
     // ignore: implicit_dynamic_list_literal
-    expect(l.getList(3)?.list, <dynamic>[]);
-    expect(l.getListOrNull(4)?.list, [
+    expect(l.getJList(3)?.list, <dynamic>[]);
+    expect(l.getJListOrNull(4)?.list, [
       -3,
       3.14,
       {'s': '_s_'}
     ]);
-    expect(l.getListOrNull(3), null);
+    expect(l.getJListOrNull(3), null);
   });
   test('map', () {
-    expect(l.getMap(5).map, {
+    expect(l.getJMap(5).map, {
       'i': -2,
       'o': {'s': '_s_'}
     });
     // ignore: implicit_dynamic_map_literal
-    expect(l.getMap(4).map, <String, dynamic>{});
-    expect(l.getMapOrNull(5)?.map, {
+    expect(l.getJMap(4).map, <String, dynamic>{});
+    expect(l.getJMapOrNull(5)?.map, {
       'i': -2,
       'o': {'s': '_s_'}
     });
-    expect(l.getMapOrNull(4), null);
+    expect(l.getJMapOrNull(4), null);
   });
 
   test('Deep clone', () {

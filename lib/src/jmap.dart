@@ -60,27 +60,27 @@ class JList {
   }
 
   /// Gets a nullable [JMap].
-  JMap? getMapOrNull(int idx) {
+  JMap? getJMapOrNull(int idx) {
     final obj = _get<Map<String, dynamic>>(idx);
     return obj == null ? null : JMap(obj);
   }
 
   /// Gets a [JMap] that can be empty.
-  JMap getMap(int idx) {
+  JMap getJMap(int idx) {
     // ignore: implicit_dynamic_map_literal
-    return getMapOrNull(idx) ?? JMap({});
+    return getJMapOrNull(idx) ?? JMap({});
   }
 
   /// Gets a nullable [JList].
-  JList? getListOrNull(int idx) {
+  JList? getJListOrNull(int idx) {
     final list = _get<List<dynamic>>(idx);
     return list == null ? null : JList(list);
   }
 
   /// Gets a [JList] that can be empty.
-  JList? getList(int idx) {
+  JList? getJList(int idx) {
     // ignore: implicit_dynamic_list_literal
-    return getListOrNull(idx) ?? JList([]);
+    return getJListOrNull(idx) ?? JList([]);
   }
 
   JList deepClone() {
@@ -172,27 +172,27 @@ class JMap {
   }
 
   /// Gets a nullable [JMap].
-  JMap? getMapOrNull(String key) {
+  JMap? getJMapOrNull(String key) {
     final obj = _get<Map<String, dynamic>>(key);
     return obj == null ? null : JMap(obj);
   }
 
   /// Gets a [JMap] that can be empty.
-  JMap getMap(String key) {
+  JMap getJMap(String key) {
     // ignore: implicit_dynamic_map_literal
-    return getMapOrNull(key) ?? JMap({});
+    return getJMapOrNull(key) ?? JMap({});
   }
 
   /// Gets a nullable [JList].
-  JList? getListOrNull(String key) {
+  JList? getJListOrNull(String key) {
     final list = _get<List<dynamic>>(key);
     return list == null ? null : JList(list);
   }
 
   /// Gets a [JList] that can be empty.
-  JList getList(String key) {
+  JList getJList(String key) {
     // ignore: implicit_dynamic_list_literal
-    return getListOrNull(key) ?? JList([]);
+    return getJListOrNull(key) ?? JList([]);
   }
 
   /// Returns [value.toString()] if it exists. Otherwise, returns an empty string.

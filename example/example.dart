@@ -1,9 +1,10 @@
+// ignore_for_file: avoid_print, prefer_single_quotes
+
 import 'dart:convert';
 
 import 'package:jmap/jmap.dart';
 
 void main() {
-  // ignore: prefer_single_quotes
   const json = """
     {
       "i": 1,
@@ -20,23 +21,25 @@ void main() {
     }
 """;
   final map = jsonDecode(json) as Map<String, dynamic>;
-  final jmap = JMap(map);
 
-// ignore_for_file: avoid_print
+  // Create a [JMap] from [Map<String, dynamic>].
+  final JMap jmap = JMap(map);
+
   // Access members.
   print(jmap.getInt('i')); // 1
   print(jmap.getInt('obj')); // 0 (map['obj'] is not an int)
   print(jmap.getIntOrNull('__')); // null
 
-  // JSON objects are returned as [JMap].
-  final obj = jmap.getMap('obj');
+  // Objects can be accessed as [JMap].
+  final JMap obj = jmap.getJMap('obj');
   print(obj.getInt('i')); // 2
 
-  // JSON arrays are returned as [JList].
-  final arr = jmap.getList('array');
-  print(arr.getStringOrNull(1) ?? '--haha--'); // --haha--
+  // Arrays can be accessed as [JList].
+  final JList arr = jmap.getJList('array');
+  print(arr.getStringOrNull(1) ?? 'fallback value'); // fallback value
 
   // Chaining.
-  print(jmap.getList('array').getMap(2).getString('s')); // _s_
-  print(jmap.getList('array').getMap(2).getDoubleOrNull('__') ?? -1.1); // -1.1
+  print(jmap.getJList('array').getJMap(2).getString('s')); // _s_
+  print(
+      jmap.getJList('array').getJMap(2).getDoubleOrNull('__') ?? -1.1); // -1.1
 }

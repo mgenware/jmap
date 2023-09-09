@@ -30,6 +30,7 @@ Example:
     }
 """;
   Map<String, dynamic> map = jsonDecode(json);
+
   // Create a [JMap] from [Map<String, dynamic>].
   JMap jmap = JMap(map);
 
@@ -38,15 +39,15 @@ Example:
   print(jmap.getInt('obj')); // 0 (map['obj'] is not an int)
   print(jmap.getIntOrNull('__')); // null
 
-  // JSON objects are returned as [JMap].
-  JMap obj = jmap.getMap('obj');
+  // Objects can be accessed as [JMap].
+  JMap obj = jmap.getJMap('obj');
   print(obj.getInt('i')); // 2
 
-  // JSON arrays are returned as [JList].
-  JList arr = jmap.getList('array');
-  print(arr.getStringOrNull(1) ?? '--haha--'); // --haha--
+  // Arrays can be accessed as [JList].
+  JList arr = jmap.getJList('array');
+  print(arr.getStringOrNull(1) ?? 'fallback value'); // fallback value
 
   // Chaining.
-  print(jmap.getList('array').getMap(2).getString('s')); // _s_
-  print(jmap.getList('array').getMap(2).getDoubleOrNull('__') ?? -1.1); // -1.1
+  print(jmap.getJList('array').getJMap(2).getString('s')); // _s_
+  print(jmap.getJList('array').getJMap(2).getDoubleOrNull('__') ?? -1.1); // -1.1
 ```
