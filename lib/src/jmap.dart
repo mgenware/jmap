@@ -5,14 +5,16 @@ typedef JMapList = List<JMap>;
 
 /// A wrapper around a [List<dynamic>].
 class JList {
-  JList(this.list);
+  JList(List<dynamic>? list) {
+    this.list = list ?? [];
+  }
 
   int get count => list.length;
   bool get isEmpty => list.isEmpty;
   bool get isNotEmpty => list.isNotEmpty;
 
   /// Returns the internal list.
-  final List<dynamic> list;
+  late final List<dynamic> list;
 
   /// The length of this list.
   int get length {
@@ -117,14 +119,16 @@ class JList {
 
 /// A wrapper around a [Map<String, dynamic>].
 class JMap {
-  JMap(this.map);
+  JMap(Map<String, dynamic>? map) {
+    this.map = map ?? <String, dynamic>{};
+  }
 
   int get count => map.length;
   bool get isEmpty => map.isEmpty;
   bool get isNotEmpty => map.isNotEmpty;
 
   /// Returns the internal map.
-  final Map<String, dynamic> map;
+  late final Map<String, dynamic> map;
 
   /// Length of this map.
   int get length {

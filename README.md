@@ -14,6 +14,10 @@ import 'package:jmap/jmap.dart';
 Example:
 
 ```dart
+import 'dart:convert';
+import 'package:jmap/jmap.dart';
+
+void main() {
   const json = """
     {
       "i": 1,
@@ -29,10 +33,10 @@ Example:
       ]
     }
 """;
-  Map<String, dynamic> map = jsonDecode(json);
+  final map = jsonDecode(json) as Map<String, dynamic>;
 
   // Create a [JMap] from [Map<String, dynamic>].
-  JMap jmap = JMap(map);
+  final JMap jmap = JMap(map);
 
   // Access members.
   print(jmap.getInt('i')); // 1
@@ -40,14 +44,16 @@ Example:
   print(jmap.getIntOrNull('__')); // null
 
   // Objects can be accessed as [JMap].
-  JMap obj = jmap.getJMap('obj');
+  final JMap obj = jmap.getJMap('obj');
   print(obj.getInt('i')); // 2
 
   // Arrays can be accessed as [JList].
-  JList arr = jmap.getJList('array');
+  final JList arr = jmap.getJList('array');
   print(arr.getStringOrNull(1) ?? 'fallback value'); // fallback value
 
   // Chaining.
   print(jmap.getJList('array').getJMap(2).getString('s')); // _s_
-  print(jmap.getJList('array').getJMap(2).getDoubleOrNull('__') ?? -1.1); // -1.1
+  print(
+      jmap.getJList('array').getJMap(2).getDoubleOrNull('__') ?? -1.1); // -1.1
+}
 ```
