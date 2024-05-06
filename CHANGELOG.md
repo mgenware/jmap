@@ -1,3 +1,7 @@
+## 3.0.0
+
+- Make `ignoreCase` a required parameter.
+
 ## 2.1.0
 
 - Add `ignoreCase`.
