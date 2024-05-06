@@ -6,7 +6,9 @@ typedef JMapList = List<JMap>;
 
 /// A wrapper around a [List<dynamic>].
 class JList {
-  JList(List<dynamic>? list) {
+  final bool ignoreCase;
+
+  JList(List<dynamic>? list, {required this.ignoreCase}) {
     this.list = list ?? [];
   }
 
@@ -65,31 +67,31 @@ class JList {
   /// Gets a nullable [JMap].
   JMap? getJMapOrNull(int idx) {
     final obj = _get<Map<String, dynamic>>(idx);
-    return obj == null ? null : JMap(obj);
+    return obj == null ? null : JMap(obj, ignoreCase: ignoreCase);
   }
 
   /// Gets a [JMap] that can be empty.
   JMap getJMap(int idx) {
     // ignore: implicit_dynamic_map_literal
-    return getJMapOrNull(idx) ?? JMap({});
+    return getJMapOrNull(idx) ?? JMap({}, ignoreCase: ignoreCase);
   }
 
   /// Gets a nullable [JList].
   JList? getJListOrNull(int idx) {
     final list = _get<List<dynamic>>(idx);
-    return list == null ? null : JList(list);
+    return list == null ? null : JList(list, ignoreCase: ignoreCase);
   }
 
   /// Gets a [JList] that can be empty.
   JList? getJList(int idx) {
     // ignore: implicit_dynamic_list_literal
-    return getJListOrNull(idx) ?? JList([]);
+    return getJListOrNull(idx) ?? JList([], ignoreCase: ignoreCase);
   }
 
   JList deepClone() {
     final json = jsonEncode(list);
     final clone = jsonDecode(json) as List<dynamic>;
-    return JList(clone);
+    return JList(clone, ignoreCase: ignoreCase);
   }
 
   List<T> toList<T>() {
@@ -105,7 +107,7 @@ class JList {
 
   JMapList toJMapList() {
     final dicts = toList<Map<String, dynamic>>();
-    return dicts.map((e) => JMap(e)).toList();
+    return dicts.map((e) => JMap(e, ignoreCase: ignoreCase)).toList();
   }
 
   T? _get<T>(int idx) {
@@ -122,7 +124,7 @@ class JList {
 class JMap {
   final bool ignoreCase;
 
-  JMap(Map<String, dynamic>? map, {this.ignoreCase = false}) {
+  JMap(Map<String, dynamic>? map, {required this.ignoreCase}) {
     final nonNullMap = map ?? <String, dynamic>{};
     if (ignoreCase) {
       final newMap = LinkedHashMap<String, dynamic>(
@@ -192,13 +194,13 @@ class JMap {
   /// Gets a nullable [JMap].
   JMap? getJMapOrNull(String key) {
     final obj = _get<Map<String, dynamic>>(key);
-    return obj == null ? null : JMap(obj);
+    return obj == null ? null : JMap(obj, ignoreCase: ignoreCase);
   }
 
   /// Gets a [JMap] that can be empty.
   JMap getJMap(String key) {
     // ignore: implicit_dynamic_map_literal
-    return getJMapOrNull(key) ?? JMap({});
+    return getJMapOrNull(key) ?? JMap({}, ignoreCase: ignoreCase);
   }
 
   /// Unlike [getJMap], this method creates a new [JMap] if the value does not exist.
@@ -207,22 +209,22 @@ class JMap {
     if (obj == null) {
       final newMap = <String, dynamic>{};
       map[key] = newMap;
-      return JMap(newMap);
+      return JMap(newMap, ignoreCase: ignoreCase);
     } else {
-      return JMap(obj);
+      return JMap(obj, ignoreCase: ignoreCase);
     }
   }
 
   /// Gets a nullable [JList].
   JList? getJListOrNull(String key) {
     final list = _get<List<dynamic>>(key);
-    return list == null ? null : JList(list);
+    return list == null ? null : JList(list, ignoreCase: ignoreCase);
   }
 
   /// Gets a [JList] that can be empty.
   JList getJList(String key) {
     // ignore: implicit_dynamic_list_literal
-    return getJListOrNull(key) ?? JList([]);
+    return getJListOrNull(key) ?? JList([], ignoreCase: ignoreCase);
   }
 
   /// Returns [value.toString()] if it exists. Otherwise, returns an empty string.
@@ -235,7 +237,7 @@ class JMap {
   JMap deepClone() {
     final json = jsonEncode(map);
     final clone = jsonDecode(json) as Map<String, dynamic>;
-    return JMap(clone);
+    return JMap(clone, ignoreCase: ignoreCase);
   }
 
   T? _get<T>(String key) {

@@ -17,7 +17,7 @@ void main() {
       3.14,
       {'s': '_s_'}
     ]
-  });
+  }, ignoreCase: false);
 
   test('int', () {
     expect(m.getInt('i'), -123);
@@ -135,5 +135,9 @@ void main() {
       'i': -2,
       'o': {'s': '_s_'}
     });
+
+    // `ignoreCase` should pass to child JMap and JList.
+    expect(m.getJMap('o').ignoreCase, true);
+    expect(m.getJList('a').ignoreCase, true);
   });
 }

@@ -36,7 +36,7 @@ void main() {
   final map = jsonDecode(json) as Map<String, dynamic>;
 
   // Create a [JMap] from [Map<String, dynamic>].
-  final JMap jmap = JMap(map);
+  final JMap jmap = JMap(map, ignoreCase: false);
 
   // Access members.
   print(jmap.getInt('i')); // 1

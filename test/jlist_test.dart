@@ -17,7 +17,7 @@ void main() {
       'i': -2,
       'o': {'s': '_s_'}
     },
-  ]);
+  ], ignoreCase: false);
 
   test('int', () {
     expect(l.getInt(0), -123);
