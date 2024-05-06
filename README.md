@@ -57,3 +57,7 @@ void main() {
       jmap.getJList('array').getJMap(2).getDoubleOrNull('__') ?? -1.1); // -1.1
 }
 ```
+
+## Options
+
+- Use `JMap({}, ignoreCase: true);` to create a case-insensitive `JMap`.

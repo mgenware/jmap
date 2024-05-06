@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 
 /// Type alias for [List<JMap>].
@@ -119,8 +120,21 @@ class JList {
 
 /// A wrapper around a [Map<String, dynamic>].
 class JMap {
-  JMap(Map<String, dynamic>? map) {
-    this.map = map ?? <String, dynamic>{};
+  final bool ignoreCase;
+
+  JMap(Map<String, dynamic>? map, {this.ignoreCase = false}) {
+    final nonNullMap = map ?? <String, dynamic>{};
+    if (ignoreCase) {
+      final newMap = LinkedHashMap<String, dynamic>(
+          equals: (a, b) => a.toLowerCase() == b.toLowerCase(),
+          hashCode: (key) => key.toLowerCase().hashCode);
+      for (final entry in nonNullMap.entries) {
+        newMap[entry.key.toLowerCase()] = entry.value;
+      }
+      this.map = newMap;
+    } else {
+      this.map = nonNullMap;
+    }
   }
 
   int get count => map.length;

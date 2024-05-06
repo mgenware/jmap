@@ -92,4 +92,48 @@ void main() {
     expect(m2.getJList('a').list, m.getJList('a').list);
     expect(m2.getJList('a').list, isNot(same(m.getJList('a').list)));
   });
+
+  test('Ignore case', () {
+    final m = JMap({
+      'i': -123,
+      'd': 123.456,
+      's': '_s_',
+      'b': true,
+      'o': {
+        'i': -2,
+        'o': {'s': '_s_'}
+      },
+      'a': [
+        -3,
+        3.14,
+        {'s': '_s_'}
+      ]
+    }, ignoreCase: true);
+    expect(m.getInt('I'), -123);
+    expect(m.getInt('i'), -123);
+    expect(m.getDouble('D'), 123.456);
+    expect(m.getDouble('d'), 123.456);
+    expect(m.getBool('B'), true);
+    expect(m.getBool('b'), true);
+    expect(m.getString('S'), '_s_');
+    expect(m.getString('s'), '_s_');
+    expect(m.getJList('A').list, [
+      -3,
+      3.14,
+      {'s': '_s_'}
+    ]);
+    expect(m.getJList('a').list, [
+      -3,
+      3.14,
+      {'s': '_s_'}
+    ]);
+    expect(m.getJMap('O').map, {
+      'i': -2,
+      'o': {'s': '_s_'}
+    });
+    expect(m.getJMap('o').map, {
+      'i': -2,
+      'o': {'s': '_s_'}
+    });
+  });
 }
