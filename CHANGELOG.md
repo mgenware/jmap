@@ -1,3 +1,7 @@
+## 2.1.0
+
+- Add `ignoreCase`.
+
 ## 2.0.0
 
 - Breaking change: Renamed `getMap` to `getJMap`.
