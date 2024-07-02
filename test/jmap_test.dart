@@ -99,7 +99,7 @@ void main() {
       'd': 123.456,
       's': '_s_',
       'b': true,
-      'o': {
+      'O': {
         'i': -2,
         'o': {'s': '_s_'}
       },
@@ -134,6 +134,21 @@ void main() {
     expect(m.getJMap('o').map, {
       'i': -2,
       'o': {'s': '_s_'}
+    });
+    expect(m.map, {
+      'i': -123,
+      'd': 123.456,
+      's': '_s_',
+      'b': true,
+      'O': {
+        'i': -2,
+        'o': {'s': '_s_'}
+      },
+      'a': [
+        -3,
+        3.14,
+        {'s': '_s_'}
+      ]
     });
 
     // `ignoreCase` should pass to child JMap and JList.

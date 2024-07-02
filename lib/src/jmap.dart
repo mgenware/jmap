@@ -131,7 +131,7 @@ class JMap {
           equals: (a, b) => a.toLowerCase() == b.toLowerCase(),
           hashCode: (key) => key.toLowerCase().hashCode);
       for (final entry in nonNullMap.entries) {
-        newMap[entry.key.toLowerCase()] = entry.value;
+        newMap[entry.key] = entry.value;
       }
       this.map = newMap;
     } else {
