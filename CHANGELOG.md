@@ -1,3 +1,7 @@
+## 3.1.0
+
+- No need to call `toLowerCase` when adding entries.
+
 ## 3.0.0
 
 - Make `ignoreCase` a required parameter.
