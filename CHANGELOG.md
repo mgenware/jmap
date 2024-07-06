@@ -1,3 +1,7 @@
+## 3.1.1
+
+- Return inlined JMap in allocJMap
+
 ## 3.1.0
 
 - No need to call `toLowerCase` when adding entries.
