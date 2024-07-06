@@ -207,9 +207,9 @@ class JMap {
   JMap allocJMap(String key) {
     final obj = _get<Map<String, dynamic>>(key);
     if (obj == null) {
-      final newMap = <String, dynamic>{};
-      map[key] = newMap;
-      return JMap(newMap, ignoreCase: ignoreCase);
+      final childJMap = JMap({}, ignoreCase: ignoreCase);
+      map[key] = childJMap.map;
+      return childJMap;
     } else {
       return JMap(obj, ignoreCase: ignoreCase);
     }

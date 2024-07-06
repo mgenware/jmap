@@ -155,4 +155,54 @@ void main() {
     expect(m.getJMap('o').ignoreCase, true);
     expect(m.getJList('a').ignoreCase, true);
   });
+
+  test('getJMap and missing key (ignore case = false)', () {
+    final m = JMap({'v': 0}, ignoreCase: false);
+    final o = m.getJMap('o');
+    expect(o.ignoreCase, false);
+    expect(o.map, <String, dynamic>{});
+    o.map['i'] = 2;
+    expect(m.map, {'v': 0});
+    expect(o.map, {'i': 2});
+    expect(m.getJMap('o').map, <String, dynamic>{});
+  });
+
+  test('getJMap and missing key (ignore case = true)', () {
+    final m = JMap({'v': 0}, ignoreCase: true);
+    final o = m.getJMap('o');
+    expect(o.ignoreCase, true);
+    expect(o.map, <String, dynamic>{});
+    o.map['i'] = 2;
+    expect(m.map, {'v': 0});
+    expect(o.map, {'i': 2});
+    expect(m.getJMap('o').map, <String, dynamic>{});
+  });
+
+  test('allocJMap and missing key (ignore case = false)', () {
+    final m = JMap({'v': 0}, ignoreCase: false);
+    final o = m.allocJMap('o');
+    expect(o.ignoreCase, false);
+    expect(o.map, <String, dynamic>{});
+    o.map['i'] = 2;
+    expect(m.map, {
+      'v': 0,
+      'o': {'i': 2}
+    });
+    expect(o.map, {'i': 2});
+    expect(m.getJMap('o').map, {'i': 2});
+  });
+
+  test('allocJMap and missing key (ignore case = true)', () {
+    final m = JMap({'v': 0}, ignoreCase: true);
+    final o = m.allocJMap('o');
+    expect(o.ignoreCase, true);
+    expect(o.map, <String, dynamic>{});
+    o.map['i'] = 2;
+    expect(m.map, {
+      'v': 0,
+      'o': {'i': 2}
+    });
+    expect(o.map, {'i': 2});
+    expect(m.getJMap('o').map, {'i': 2});
+  });
 }
