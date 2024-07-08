@@ -1,3 +1,8 @@
+## 4.5.0
+
+- Remove `allocJMap`.
+- Switch a faster case-insensitive map implementation.
+
 ## 3.1.1
 
 - Return inlined JMap in allocJMap

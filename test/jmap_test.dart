@@ -77,12 +77,6 @@ void main() {
     expect(m.getDescription('s'), '_s_');
   });
 
-  test('allocJMap', () {
-    final m2 = m.allocJMap('o');
-    expect(m2.map, m.getJMap('o').map);
-    expect(m2.map, same(m.getJMap('o').map));
-  });
-
   test('Deep clone', () {
     final m2 = m.deepClone();
     expect(m2.map, m.map);
@@ -176,33 +170,5 @@ void main() {
     expect(m.map, {'v': 0});
     expect(o.map, {'i': 2});
     expect(m.getJMap('o').map, <String, dynamic>{});
-  });
-
-  test('allocJMap and missing key (ignore case = false)', () {
-    final m = JMap({'v': 0}, ignoreCase: false);
-    final o = m.allocJMap('o');
-    expect(o.ignoreCase, false);
-    expect(o.map, <String, dynamic>{});
-    o.map['i'] = 2;
-    expect(m.map, {
-      'v': 0,
-      'o': {'i': 2}
-    });
-    expect(o.map, {'i': 2});
-    expect(m.getJMap('o').map, {'i': 2});
-  });
-
-  test('allocJMap and missing key (ignore case = true)', () {
-    final m = JMap({'v': 0}, ignoreCase: true);
-    final o = m.allocJMap('o');
-    expect(o.ignoreCase, true);
-    expect(o.map, <String, dynamic>{});
-    o.map['i'] = 2;
-    expect(m.map, {
-      'v': 0,
-      'o': {'i': 2}
-    });
-    expect(o.map, {'i': 2});
-    expect(m.getJMap('o').map, {'i': 2});
   });
 }

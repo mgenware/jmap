@@ -1,5 +1,6 @@
-import 'dart:collection';
 import 'dart:convert';
+
+import 'package:collection/collection.dart';
 
 /// Type alias for [List<JMap>].
 typedef JMapList = List<JMap>;
@@ -120,22 +121,20 @@ class JList {
   }
 }
 
+Map<String, dynamic> _canonicalizeMap(Map<String, dynamic> map) {
+  return CanonicalizedMap<String, String, dynamic>.from(
+      map, (key) => key.toLowerCase());
+}
+
 /// A wrapper around a [Map<String, dynamic>].
 class JMap {
   final bool ignoreCase;
 
   JMap(Map<String, dynamic>? map, {required this.ignoreCase}) {
-    final nonNullMap = map ?? <String, dynamic>{};
     if (ignoreCase) {
-      final newMap = LinkedHashMap<String, dynamic>(
-          equals: (a, b) => a.toLowerCase() == b.toLowerCase(),
-          hashCode: (key) => key.toLowerCase().hashCode);
-      for (final entry in nonNullMap.entries) {
-        newMap[entry.key] = entry.value;
-      }
-      this.map = newMap;
+      this.map = _canonicalizeMap(map ?? <String, dynamic>{});
     } else {
-      this.map = nonNullMap;
+      this.map = map ?? <String, dynamic>{};
     }
   }
 
@@ -201,18 +200,6 @@ class JMap {
   JMap getJMap(String key) {
     // ignore: implicit_dynamic_map_literal
     return getJMapOrNull(key) ?? JMap({}, ignoreCase: ignoreCase);
-  }
-
-  /// Unlike [getJMap], this method creates a new [JMap] if the value does not exist.
-  JMap allocJMap(String key) {
-    final obj = _get<Map<String, dynamic>>(key);
-    if (obj == null) {
-      final childJMap = JMap({}, ignoreCase: ignoreCase);
-      map[key] = childJMap.map;
-      return childJMap;
-    } else {
-      return JMap(obj, ignoreCase: ignoreCase);
-    }
   }
 
   /// Gets a nullable [JList].
