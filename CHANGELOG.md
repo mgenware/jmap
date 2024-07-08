@@ -1,4 +1,4 @@
-## 4.5.0
+## 4.3.0
 
 - Remove `allocJMap`.
 - Switch a faster case-insensitive map implementation.
