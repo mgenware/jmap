@@ -1,3 +1,7 @@
+## 4.3.1
+
+- Downgrade `collection` for compat issues.
+
 ## 4.3.0
 
 - Remove `allocJMap`.
