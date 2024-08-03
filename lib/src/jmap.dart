@@ -150,6 +150,11 @@ class JMap {
     return map.length;
   }
 
+  /// Returns if the map contains the key.
+  bool containsKey(String key) {
+    return map.containsKey(key);
+  }
+
   /// Gets a nullable [int].
   int? getIntOrNull(String key) {
     return _get<int>(key);

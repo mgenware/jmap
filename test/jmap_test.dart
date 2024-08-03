@@ -171,4 +171,14 @@ void main() {
     expect(o.map, {'i': 2});
     expect(m.getJMap('o').map, <String, dynamic>{});
   });
+
+  test('containsKey', () {
+    expect(m.containsKey('i'), true);
+    expect(m.containsKey('x'), false);
+    expect(m.containsKey('I'), false);
+
+    final m2 = JMap({'v': 0}, ignoreCase: true);
+    expect(m2.containsKey('v'), true);
+    expect(m2.containsKey('V'), true);
+  });
 }

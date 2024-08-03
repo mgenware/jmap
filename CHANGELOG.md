@@ -1,3 +1,7 @@
+## 4.4.0
+
+- Add `containsKey`.
+
 ## 4.3.1
 
 - Downgrade `collection` for compat issues.
