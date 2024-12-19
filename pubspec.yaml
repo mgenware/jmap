@@ -1,6 +1,6 @@
 name: jmap
 description: A minimal library to work with JSON decoded maps and lists in a type-safe way.
-version: 4.4.0
+version: 4.5.0
 homepage: https://github.com/mgenware/jmap
 
 environment:
