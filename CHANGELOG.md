@@ -1,3 +1,7 @@
+## 4.5.0
+
+- Add `getObject`.
+
 ## 4.4.0
 
 - Add `containsKey`.

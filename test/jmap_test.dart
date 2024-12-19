@@ -181,4 +181,21 @@ void main() {
     expect(m2.containsKey('v'), true);
     expect(m2.containsKey('V'), true);
   });
+
+  test('getObject', () {
+    expect(m.getObject('i'), -123);
+    expect(m.getObject('d'), 123.456);
+    expect(m.getObject('s'), '_s_');
+    expect(m.getObject('b'), true);
+    expect(m.getObject('o'), {
+      'i': -2,
+      'o': {'s': '_s_'}
+    });
+    expect(m.getObject('a'), [
+      -3,
+      3.14,
+      {'s': '_s_'}
+    ]);
+    expect(m.getObject('_'), null);
+  });
 }

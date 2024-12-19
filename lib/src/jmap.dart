@@ -226,6 +226,11 @@ class JMap {
     return value != null ? value.toString() : '';
   }
 
+  /// Get a nullable object with the given key.
+  Object? getObject(String key) {
+    return map[key];
+  }
+
   JMap deepClone() {
     final json = jsonEncode(map);
     final clone = jsonDecode(json) as Map<String, dynamic>;
