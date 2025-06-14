@@ -172,6 +172,20 @@ void main() {
     expect(m.getJMap('o').map, <String, dynamic>{});
   });
 
+  test('getJmap with path', () {
+    final m = JMap({
+      'a': {
+        'b': {
+          'c': {'d': 42}
+        }
+      }
+    }, ignoreCase: false);
+    expect(m.getJmapOrNullWithPath(['a', 'b', 'c'])?.map, {'d': 42});
+    expect(m.getJmapOrNullWithPath(['a', 'b', 'c', 'd']), null);
+    expect(m.getJmapOrNullWithPath(['a', 'b', 'c', 'x']), null);
+    expect(m.getJmapOrNullWithPath([]), null);
+  });
+
   test('containsKey', () {
     expect(m.containsKey('i'), true);
     expect(m.containsKey('x'), false);

@@ -201,6 +201,20 @@ class JMap {
     return obj == null ? null : JMap(obj, ignoreCase: ignoreCase);
   }
 
+  JMap? getJmapOrNullWithPath(List<String> path) {
+    if (path.isEmpty) {
+      return null;
+    }
+    JMap? current = this;
+    for (final key in path) {
+      if (current == null) {
+        return null;
+      }
+      current = current.getJMapOrNull(key);
+    }
+    return current;
+  }
+
   /// Gets a [JMap] that can be empty.
   JMap getJMap(String key) {
     // ignore: implicit_dynamic_map_literal

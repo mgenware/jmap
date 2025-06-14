@@ -1,3 +1,7 @@
+## 4.6.0
+
+- Add `getJmapOrNullWithPath`.
+
 ## 4.5.0
 
 - Add `getObject`.
