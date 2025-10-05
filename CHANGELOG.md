@@ -1,3 +1,7 @@
+## 4.7.0
+
+- Add `keys`.
+
 ## 4.6.0
 
 - Add `getJmapOrNullWithPath`.

@@ -142,6 +142,9 @@ class JMap {
   bool get isEmpty => map.isEmpty;
   bool get isNotEmpty => map.isNotEmpty;
 
+  /// Returns the keys of the internal map.
+  Iterable<String> get keys => map.keys;
+
   /// Returns the internal map.
   late final Map<String, dynamic> map;
 
