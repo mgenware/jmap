@@ -1,3 +1,7 @@
+## 4.8.0
+
+- Implicit conversion from int to double.
+
 ## 4.7.0
 
 - Add `keys`.
