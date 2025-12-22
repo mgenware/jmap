@@ -27,9 +27,9 @@ void main() {
   });
   test('double', () {
     expect(l.getDouble(1), 123.456);
-    expect(l.getDouble(0), 0.0);
+    expect(l.getDouble(0), -123.0);
     expect(l.getDoubleOrNull(1), 123.456);
-    expect(l.getDoubleOrNull(0), null);
+    expect(l.getDoubleOrNull(0), -123.0);
   });
   test('bool', () {
     expect(l.getBool(2), true);

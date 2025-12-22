@@ -37,7 +37,7 @@ class JList {
 
   /// Gets a nullable [double].
   double? getDoubleOrNull(int idx) {
-    return _get<double>(idx);
+    return _get<num>(idx)?.toDouble();
   }
 
   /// Gets a [double] or 0.
@@ -170,7 +170,7 @@ class JMap {
 
   /// Gets a nullable [double].
   double? getDoubleOrNull(String key) {
-    return _get<double>(key);
+    return _get<num>(key)?.toDouble();
   }
 
   /// Gets a [double] or 0.

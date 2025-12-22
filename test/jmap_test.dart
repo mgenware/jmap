@@ -30,6 +30,10 @@ void main() {
     expect(m.getDouble('_'), 0.0);
     expect(m.getDoubleOrNull('d'), 123.456);
     expect(m.getDoubleOrNull('_'), null);
+
+    // Getting int as double
+    expect(m.getDouble('i'), -123.0);
+    expect(m.getDoubleOrNull('i'), -123.0);
   });
   test('bool', () {
     expect(m.getBool('b'), true);
