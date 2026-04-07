@@ -80,6 +80,10 @@ void main() {
     expect(m.getDescription('_'), null);
     expect(m.getDescription('s'), '_s_');
   });
+  test('getDescription should return null for empty string', () {
+    final m = JMap({'empty': ''}, ignoreCase: false);
+    expect(m.getDescription('empty'), null);
+  });
 
   test('Deep clone', () {
     final m2 = m.deepClone();

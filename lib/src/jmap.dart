@@ -240,7 +240,11 @@ class JMap {
   String? getDescription(String key) {
     // ignore: implicit_dynamic_variable
     final value = map[key];
-    return value?.toString();
+    final s = value?.toString();
+    if (s?.isEmpty == true) {
+      return null;
+    }
+    return s;
   }
 
   /// Get a nullable object with the given key.
