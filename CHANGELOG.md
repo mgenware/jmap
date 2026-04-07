@@ -1,3 +1,7 @@
+## 5.0.0
+
+- `getDescription` now returns `String?` instead of `String`.
+
 ## 4.8.0
 
 - Implicit conversion from int to double.

@@ -77,7 +77,7 @@ void main() {
   });
   test('getDescription', () {
     expect(m.getDescription('b'), 'true');
-    expect(m.getDescription('_'), '');
+    expect(m.getDescription('_'), null);
     expect(m.getDescription('s'), '_s_');
   });
 

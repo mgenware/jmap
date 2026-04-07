@@ -236,11 +236,11 @@ class JMap {
     return getJListOrNull(key) ?? JList([], ignoreCase: ignoreCase);
   }
 
-  /// Returns [value.toString()] if it exists. Otherwise, returns an empty string.
-  String getDescription(String key) {
+  /// Returns [value.toString()] if it exists. Otherwise, returns null.
+  String? getDescription(String key) {
     // ignore: implicit_dynamic_variable
     final value = map[key];
-    return value != null ? value.toString() : '';
+    return value?.toString();
   }
 
   /// Get a nullable object with the given key.
