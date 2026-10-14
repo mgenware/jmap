@@ -1,3 +1,7 @@
+## 5.1.0
+
+- Return null or the default value for out-of-range `JList` indexes.
+
 ## 5.0.0
 
 - `getDescription` now returns `String?` instead of `String`.

@@ -72,6 +72,23 @@ void main() {
     expect(l.getJMapOrNull(4), null);
   });
 
+  test('out-of-range index', () {
+    for (final idx in [-1, l.length]) {
+      expect(l.getIntOrNull(idx), null);
+      expect(l.getInt(idx), 0);
+      expect(l.getDoubleOrNull(idx), null);
+      expect(l.getDouble(idx), 0.0);
+      expect(l.getBoolOrNull(idx), null);
+      expect(l.getBool(idx), false);
+      expect(l.getStringOrNull(idx), null);
+      expect(l.getString(idx), '');
+      expect(l.getJMapOrNull(idx), null);
+      expect(l.getJMap(idx).map, isEmpty);
+      expect(l.getJListOrNull(idx), null);
+      expect(l.getJList(idx)?.list, isEmpty);
+    }
+  });
+
   test('Deep clone', () {
     final l2 = l.deepClone();
     expect(l2.list, l.list);

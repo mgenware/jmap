@@ -112,6 +112,9 @@ class JList {
   }
 
   T? _get<T>(int idx) {
+    if (idx < 0 || idx >= list.length) {
+      return null;
+    }
     return list[idx] is T ? list[idx] as T : null;
   }
 
