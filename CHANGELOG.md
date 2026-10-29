@@ -1,3 +1,7 @@
+## 5.2.0
+
+- Make `JList.getJList` return a non-null `JList`.
+
 ## 5.1.0
 
 - Return null or the default value for out-of-range `JList` indexes.

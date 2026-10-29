@@ -84,7 +84,7 @@ class JList {
   }
 
   /// Gets a [JList] that can be empty.
-  JList? getJList(int idx) {
+  JList getJList(int idx) {
     // ignore: implicit_dynamic_list_literal
     return getJListOrNull(idx) ?? JList([], ignoreCase: ignoreCase);
   }
